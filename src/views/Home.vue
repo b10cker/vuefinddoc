@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <GoBack></GoBack>
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <button @click="toSignUp">Sign Up</button>
   </div>
 </template>
 
@@ -13,6 +13,11 @@ export default {
   name: "Home",
   components: {
     GoBack,
+  },
+  methods: {
+    toSignUp() {
+      this.$router.push({ path: "/create" });
+    },
   },
 };
 </script>

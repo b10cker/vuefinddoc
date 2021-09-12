@@ -3,9 +3,9 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import { Button } from "vant";
+import { Button, Toast } from "vant";
 
-Vue.use(Button);
+Vue.use(Button).use(Toast);
 
 Vue.config.productionTip = false;
 

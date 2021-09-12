@@ -19,6 +19,33 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+  {
+    path: "/create",
+    name: "SignUp",
+    component: () => import(/* webpackChunkName: "Create" */ "../views/Create"),
+  },
+  {
+    path: "/gender",
+    name: "Gender",
+    component: () =>
+      import(/* webpackChunkName: "gender" */ "../components/create/gender"),
+  },
+  {
+    path: "/language",
+    name: "Language",
+    component: () =>
+      import(
+        /* webpackChunkName: "language" */ "../components/create/language"
+      ),
+  },
+  {
+    path: "/createSuccess",
+    name: "Create Success",
+    component: () =>
+      import(
+        /* webpackChunkName: "createSuccess" */ "../components/create/createSuccess"
+      ),
+  },
 ];
 
 const router = new VueRouter({
