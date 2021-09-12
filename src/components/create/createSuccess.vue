@@ -8,7 +8,7 @@
       <p>check you e-mail to active your account!</p>
     </div>
     <div class="verified">
-      <button>I have verified</button>
+      <button @click="createSuccess">I have verified</button>
     </div>
   </div>
 </template>
@@ -16,7 +16,14 @@
 <script>
 export default {
   name: "createSuccess",
+
+    methods: {
+    createSuccess() {
+      this.$router.push({ path: "SignIn" });
+    },
+  },
 };
+
 </script>
 
 <style scoped>

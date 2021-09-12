@@ -46,6 +46,22 @@ const routes = [
         /* webpackChunkName: "createSuccess" */ "../components/create/createSuccess"
       ),
   },
+  {
+    path: "/signIn",
+    name: "Sign In",
+    component: () =>
+      import(
+        /* webpackChunkName: "Create" */ "../views/SignIn"
+      ),
+  },
+  {
+    path: "/resetPassword",
+    name: "Reset Password",
+    component: () =>
+      import(
+        /* webpackChunkName: "resetPassword" */ "../components/signIn/resetPassword"
+      ),
+  },
 ];
 
 const router = new VueRouter({
