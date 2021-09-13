@@ -33,9 +33,32 @@
                 <p>It is a commonly used antipyretic and analgesic medicine, often used for fever, headache and other minor pains. It is the main ingredient of many cold medicines and painkillers. It is quite safe to take acetaminophen according to the standard dose, but due to its wide range of effects, deliberate or accidental overdose is also common.</p>
             </div>
 
-            <form action="" method="POST">
-                <button type="submit" name="buy_drug">Buy</button>
-            </form>
+            <!-- <form action=""> -->
+                <button @click="showPopup" type="submit" name="buy_drug">Buy</button>
+            <!-- </form> -->
+            <van-popup v-model="show" get-container="getContainer" round position="bottom" :style="{ height: '20em' }">
+                <div class="popup">
+                    <div class="confirm_part_1">
+                        <div class="confirm_drugs">
+                            <img src="img/panadol.jpeg">
+
+                        </div>
+                        <div class="confirm_drugs_number">
+                            <p>*1</p>
+                        </div>
+                    </div>
+                    <div class="confirm_part_2">
+                        <div class="confirm_drugs_description">
+                            <p>Panadol</p>
+                            <p>$18.6</p>
+                            <p>Non-prescription</p>
+                        </div>
+                        <div class="confirm_button">
+                            <button>Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </van-popup>
         </article>
     </section>
 </template>
@@ -44,10 +67,16 @@
 
 export default {
   name: "medicinesDetail",
-  components: {
-
+  data() {
+    return {
+        value: "",
+        show: false,
+    };
   },
   methods: {
+        showPopup() {
+            this.show = true;
+    },
   },
 }
 </script>
@@ -135,5 +164,21 @@ body {
     color: white;
     border: none;
 }
+
+/* popup windows */
+
+.confirm_drugs, .confirm_drugs_number{
+    width: 50%;
+}
+
+.confirm_part_1, .confirm_part_2 {
+    display: flex;
+    height: 10em;
+}
+
+.confirm_drugs_description, .confirm_button {
+    width: 50%;
+}
+
 
 </style>
