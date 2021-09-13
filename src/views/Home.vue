@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <GoBack></GoBack>
+    <MedicineTitle titleText="Medicine"></MedicineTitle>
     <button @click="toSignUp">Sign Up</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import GoBack from "@/components/GoBack.vue";
+import MedicineTitle from "../components/MedicineTitle";
 
 export default {
   name: "Home",
   components: {
-    GoBack,
+    MedicineTitle,
   },
   methods: {
     toSignUp() {
