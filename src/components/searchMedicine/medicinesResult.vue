@@ -1,13 +1,6 @@
 <template>
   <div>
-          <section class="find_medicines_header">
-        <div>
-            <i class="fas fa-arrow-left" id="back_arrow_search_medicines"></i>
-        </div>
-        <div class="find_header">
-            <h1>Cold pills</h1>
-        </div>
-    </section>
+    <MedicineTitle titleText="Cold Pills"></MedicineTitle>
 
     <section class="pills_filter">
         <article class="pills_price">
@@ -41,10 +34,12 @@
 </template>
 
 <script>
+import MedicineTitle from "@/components/MedicineTitle";
+
 export default {
   name: "medicinesResult",
   components: {
-
+      MedicineTitle,
   },
   methods: {
     selected_specify_drug() {

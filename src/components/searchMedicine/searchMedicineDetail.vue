@@ -1,13 +1,6 @@
 <template>
  <div class="price">
-        <section class="find_medicines_header">
-            <div>
-                <i class="fas fa-arrow-left" id="back_arrow_search_medicines"></i>
-            </div>
-            <div class="find_header">
-                <h1>Search medicines</h1>
-            </div>
-        </section>
+     <MedicineTitle titleText="Search Medicines"></MedicineTitle>
     
         <section class="search_medicines">
             <div class="search_box">
@@ -33,11 +26,12 @@
 
 <script>
 import { Toast} from 'vant';
+import MedicineTitle from "@/components/MedicineTitle";
 
 export default {
   name: "searchMedicineDetail",
   components: {
-
+      MedicineTitle,
   },
   data() {
     return {
@@ -65,24 +59,6 @@ body {
 .price {
     width: 100vw;
     height: 100vh;
-}
-
-.find_medicines_header {
-    background-color: #396CF0;
-    color: white;
-    padding: 2em;
-    border-radius: 0% 0% 10% 10%;
-    display: flex;
-}
-
-#back_arrow_search_medicines {
-    padding-top: 1em;
-    font-size: 1.5em;
-}
-
-.find_header {
-    width: 100%;
-    text-align: center;
 }
 
 .search_medicines {

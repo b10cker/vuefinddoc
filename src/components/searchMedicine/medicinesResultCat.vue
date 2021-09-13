@@ -1,13 +1,6 @@
 <template>
   <div>
-      <section class="find_medicines_header">
-        <div>
-            <i class="fas fa-arrow-left" id="back_arrow_search_medicines"></i>
-        </div>
-        <div class="find_header">
-            <h1>Find pills</h1>
-        </div>
-    </section>
+    <MedicineTitle titleText="Find Pills"></MedicineTitle>
 
     <div class="search_box">
         <i class="fas fa-search"></i>
@@ -104,10 +97,12 @@
 </template>
 
 <script>
+import MedicineTitle from "@/components/MedicineTitle";
+
 export default {
   name: "medicinesResultCat",
   components: {
-
+    MedicineTitle,
   },
   data() {
   },
@@ -125,24 +120,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #F5F5F5;
-}
-
-.find_medicines_header {
-    background-color: #396CF0;
-    color: white;
-    padding: 2em;
-    border-radius: 0% 0% 10% 10%;
-    display: flex;
-}
-
-#back_arrow_search_medicines {
-    padding-top: 1em;
-    font-size: 1.5em;
-}
-
-.find_header {
-    width: 100%;
-    text-align: center;
 }
 
 .medicines_result {

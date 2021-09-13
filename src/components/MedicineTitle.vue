@@ -26,8 +26,8 @@ export default {
   padding: 0 10px;
   background-color: #396cf0;
   height: 130px;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
