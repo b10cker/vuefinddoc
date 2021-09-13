@@ -1,82 +1,84 @@
 <template>
-  <keep-alive>
-    <div class="page-container">
-      <div class="header-distance"></div>
-      <div class="progress-container">
-        <p id="progress-status">1/4</p>
-        <div class="progress">
-          <div class="current-progress quarter" id="progress-bar-length"></div>
-        </div>
-      </div>
-      <div id="create-body">
-        <div class="create">
-          <h2>Create Account</h2>
-          <form action="" class="account-input">
-            <div class="input-icon">
-              <i class="fas fa-at fa-lg"></i>
-              <input
-                type="text"
-                v-model="emailInput"
-                name="email"
-                id="email"
-                placeholder="Email"
-              />
-            </div>
-
-            <div class="input-icon">
-              <i class="far fa-user fa-lg"></i>
-              <input
-                type="text"
-                v-model="usernameInput"
-                name="username"
-                id="username"
-                placeholder="Username"
-              />
-            </div>
-
-            <div class="input-icon">
-              <i class="fas fa-lock fa-lg"></i>
-              <input
-                type="text"
-                v-model="passwordInput"
-                name="password"
-                id="password"
-                placeholder="Password"
-              />
-            </div>
-
-            <div class="input-icon">
-              <i class="fas fa-lock fa-lg"></i>
-              <input
-                type="text"
-                v-model="confirmInput"
-                name="confirm"
-                id="confirm"
-                placeholder="Confirm Password"
-              />
-            </div>
-          </form>
-
-          <div class="already">
-            <p>Already have account?<a href="">Log in</a></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="create-buttons">
-        <button class="continue" @click="checkInput">Continue</button>
+  <div class="page-container">
+    <GoBack></GoBack>
+    <div class="header-distance"></div>
+    <div class="progress-container">
+      <p id="progress-status">1/4</p>
+      <div class="progress">
+        <div class="current-progress quarter" id="progress-bar-length"></div>
       </div>
     </div>
-  </keep-alive>
+    <div id="create-body">
+      <div class="create">
+        <h2>Create Account</h2>
+        <form action="" class="account-input">
+          <div class="input-icon">
+            <i class="fas fa-at fa-lg"></i>
+            <input
+              type="text"
+              v-model="emailInput"
+              name="email"
+              id="email"
+              placeholder="Email"
+            />
+          </div>
+
+          <div class="input-icon">
+            <i class="far fa-user fa-lg"></i>
+            <input
+              type="text"
+              v-model="usernameInput"
+              name="username"
+              id="username"
+              placeholder="Username"
+            />
+          </div>
+
+          <div class="input-icon">
+            <i class="fas fa-lock fa-lg"></i>
+            <input
+              type="text"
+              v-model="passwordInput"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+          </div>
+
+          <div class="input-icon">
+            <i class="fas fa-lock fa-lg"></i>
+            <input
+              type="text"
+              v-model="confirmInput"
+              name="confirm"
+              id="confirm"
+              placeholder="Confirm Password"
+            />
+          </div>
+        </form>
+
+        <div class="already">
+          <p>Already have account?<a href="">Log in</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="create-buttons">
+      <button class="continue" @click="checkInput">Continue</button>
+    </div>
+  </div>
 </template>
 
 <script>
 // import GoBack from "@/components/GoBack";
 import { Toast } from "vant";
+import GoBack from "../components/GoBack";
 
 export default {
   name: "Create",
-  components: {},
+  components: {
+    GoBack,
+  },
   data() {
     return {
       emailInput: "",
