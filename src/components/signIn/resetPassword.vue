@@ -1,25 +1,28 @@
 <template>
-  	<section class="reset_content">
-        <GoBack></GoBack>
+  <section class="reset_content">
+    <GoBack></GoBack>
 
-		<div class="reset_description">
-			<H1>Reset Password</H1>
-			<p>Please enter your email account to reset your password.</p>
-		</div>
-	
-		<section class="sign-in">
-		
-			<form>
-				<input type="email" v-model="emailInput" id="username" name="username" placeholder="Email"><br>			
+    <div class="reset_description">
+      <H1>Reset Password</H1>
+      <p>Please enter your email account to reset your password.</p>
+    </div>
+
+    <section class="sign-in">
+      <form>
+        <input
+          type="email"
+          v-model="emailInput"
+          id="username"
+          name="username"
+          placeholder="Email"
+        /><br />
 
         <div class="reset_button">
           <button class="reset" @click="checkInput" type="submit">Reset</button>
         </div>
-
-			</form>
-	
-		</section>
-	</section>
+      </form>
+    </section>
+  </section>
 </template>
 
 <script>
@@ -38,10 +41,10 @@ export default {
   },
   methods: {
     checkInput() {
-      let message = "Please fill in your ";
+      // let message = "Please fill in your ";
       if (!this.$data.genderSelect) {
         Toast("Please select your Gender");
-      } 
+      }
     },
   },
 };
@@ -49,16 +52,16 @@ export default {
 
 <style>
 .sign-in {
-    width: 100vw;
-    height: 30vh;
-    align-items: center;
-    margin: auto;
-    display: flex;
-    justify-content: center;
+  width: 100vw;
+  height: 30vh;
+  align-items: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .sign-in div {
-    text-align: right;
+  text-align: right;
 }
 
 .reset_button {
@@ -82,22 +85,22 @@ export default {
 }
 
 .sign-in input {
-    background-color: #f7f3f3;
-    border: none;
-    border-radius: 10px;
-    margin-top: 1em;
-    width: 80vw;
-    height: 2em;
-    padding: 10px;
+  background-color: #f7f3f3;
+  border: none;
+  border-radius: 10px;
+  margin-top: 1em;
+  width: 80vw;
+  height: 2em;
+  padding: 10px;
 }
 
 .reset_description {
-    margin-top: 10vh;
-    margin-left: 2em;
-    margin-right: 2em;
+  margin-top: 10vh;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
-.reset_description p{
-    color: #75818F;
+.reset_description p {
+  color: #75818f;
 }
 </style>
