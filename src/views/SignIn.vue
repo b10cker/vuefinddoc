@@ -1,0 +1,194 @@
+<template>
+    <keep-alive>
+    <div>
+        <section class="login_content">
+        <GoBack></GoBack>
+
+		<div class="welcome_back">
+			<h1>Welcome!</h1>
+		</div>
+            
+            <section class="sign-in">
+            
+                <form action="">
+                    <div><p>Do not have an account? <a @click="signUp">Sign up</a></p></div>
+                    <input type="text" v-model="usernameInput" id="username" name="username" placeholder="Email or Username"><br>
+                    <input type="password" v-model="passwordInput" id="password" name="password" placeholder="Password"><br><br>
+                    
+                    <div class="forgot_password">
+                        <a @click="forgot_password">Forgot passward?</a><br>
+                    </div>
+        
+                    <div class="sign_in_button">
+                        <button class="sign_in" @click="checkInput" type="submit">Sign In</button>
+                    </div>
+                    
+
+                </form>
+            </section>
+	    </section>
+        <section class="others_login">
+            <div class="horizontal_line">
+                <p><span>or</span></p>
+            </div>
+            <div class="others_login_icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-google"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+        </section>
+    </div>
+    </keep-alive>
+</template>
+
+<script>
+import GoBack from "@/components/GoBack";
+import { Toast } from "vant";
+
+export default {
+  name: "SignIn",
+  components: {
+      GoBack,
+  },
+  data() {
+    return {
+      usernameInput: "",
+      passwordInput: "",
+    };
+  },
+  methods: {
+    checkInput() {
+      let message = "Please fill in your ";
+      if (!this.$data.usernameInput) {
+        Toast(message + "Username");
+      } else if (!this.$data.passwordInput) {
+        Toast(message + "Password");
+      } else {
+          //jump into new page?
+      }
+    },
+
+    forgot_password() {
+        this.$router.push({ path: "resetPassword" });
+    },
+
+    signUp() {
+        this.$router.push({ path: "Create" });
+    }
+  },
+};
+</script>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.login_content, .reset_content {
+    width: 100vw;
+    height: 60vh;
+    margin-bottom: auto;
+}
+
+.welcome_back_arrow, .reset_arrow {
+    margin-top: 3em;
+    margin-left: 2em;
+}
+
+#welcome_back_arrow, #reset_arrow {
+    font-size: 2em;
+    color: black;
+}
+
+.welcome_back {
+    /* margin-top: 2em; */
+    margin-left: 2em;
+    margin-right: 2em;
+    padding-bottom: 3em;
+}
+
+.sign-in {
+    width: 100vw;
+    height: 30vh;
+    align-items: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.sign-in div {
+    text-align: right;
+}
+
+.sign_in_button {
+  margin-top: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign_in {
+  border: none;
+  border-radius: 15px;
+  width: 85vw;
+  padding: 1.2em;
+  color: white;
+  font-size: 1em;
+  background-color: #396cf0;
+  text-decoration: none;
+  text-align: center;
+}
+
+.sign-in input {
+    background-color: #f7f3f3;
+    border: none;
+    border-radius: 10px;
+    margin-top: 1em;
+    width: 80vw;
+    height: 2em;
+    padding: 10px;
+}
+
+.sign-in i {
+    position: absolute;
+}
+
+.forgot_password a{
+    text-decoration: none;
+}
+
+.others_login {
+    width: 100vw;
+    height: 40vh;
+    text-align: center;
+    margin-top: auto;
+}
+
+.horizontal_line {
+    padding: 2em;
+}
+
+.horizontal_line p {
+    padding-top: 1em;
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #707070; 
+    line-height: 0.1em;
+    color: #707070;
+}
+
+.horizontal_line span {
+    background:#fff; 
+    padding:0 10px; 
+}
+
+.others_login_icons i{
+    font-size: 2.5em;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+</style>
