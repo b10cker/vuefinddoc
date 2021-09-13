@@ -1,7 +1,7 @@
 <template>
   <div class="title-container">
     <div class="goBack-icon">
-      <i class="fas fa-arrow-left fa-2x" @click="function(){this.$router.go(-1)}"></i>
+      <i class="fas fa-arrow-left fa-2x" @click="goBack"></i>
     </div>
     <h2>{{ titleText }}</h2>
     <div class="empty"></div>
@@ -12,6 +12,11 @@
 export default {
   props: {
     titleText: [String],
+  },
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
   },
 };
 </script>
