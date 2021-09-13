@@ -1,22 +1,22 @@
 <template>
   <div class="home">
-    <MedicineTitle titleText="Medicine"></MedicineTitle>
-    <button @click="toSignUp">Sign Up</button>
+    <button @click="toSignIn">Sign In</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import MedicineTitle from "../components/MedicineTitle";
 
 export default {
   name: "Home",
   components: {
-    MedicineTitle,
   },
   methods: {
     toSignUp() {
       this.$router.push({ path: "/create" });
+    },
+    toSignIn() {
+      this.$router.push({ path: "/signIn" });
     },
   },
 };
