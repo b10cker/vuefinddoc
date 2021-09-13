@@ -51,7 +51,7 @@ export default {
     },
     onChange(value) {
       Toast('Current value range：' + value);
-    },
+    }, 
   },
 };
 </script>

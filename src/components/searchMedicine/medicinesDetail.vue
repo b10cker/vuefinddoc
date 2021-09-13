@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import { Stepper } from 'vant';
 
 export default {
   name: "medicinesDetail",
