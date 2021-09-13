@@ -20,7 +20,7 @@
                     </div>
         
                     <div class="sign_in_button">
-                        <button class="sign_in" @click="checkInput" type="submit">Sign In</button>
+                        <button class="signIn" @click="checkInput" type="submit">Sign In</button>
                     </div>
                     
 
@@ -129,7 +129,7 @@ body {
   align-items: center;
 }
 
-.sign_in {
+.signIn {
   border: none;
   border-radius: 15px;
   width: 85vw;

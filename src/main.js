@@ -3,9 +3,9 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import { Button, Toast } from "vant";
+import { Button, Toast , Slider, Stepper} from "vant";
 
-Vue.use(Button).use(Toast);
+Vue.use(Button).use(Toast).use(Slider).use(Stepper);
 
 Vue.config.productionTip = false;
 

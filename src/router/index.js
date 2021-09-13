@@ -51,7 +51,7 @@ const routes = [
     name: "Sign In",
     component: () =>
       import(
-        /* webpackChunkName: "Create" */ "../views/SignIn"
+        /* webpackChunkName: "signIn" */ "../views/SignIn"
       ),
   },
   {
@@ -60,6 +60,43 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "resetPassword" */ "../components/signIn/resetPassword"
+      ),
+  },
+  {
+    path: "/SearchMedicine",
+    name: "SignUp",
+    component: () => import(/* webpackChunkName: "SearchMedicine" */ "../views/SearchMedicine"),
+  },
+  {
+    path: "/searchMedicineDetail",
+    name: "Search Medicine Detail",
+    component: () =>
+      import(
+        /* webpackChunkName: "searchMedicineDetail" */ "../components/searchMedicine/searchMedicineDetail"
+      ),
+  },
+  {
+    path: "/medicinesResultCat",
+    name: "Medicines Result Cat",
+    component: () =>
+      import(
+        /* webpackChunkName: "medicinesResultCat" */ "../components/searchMedicine/medicinesResultCat"
+      ),
+  },
+  {
+    path: "/medicinesResult",
+    name: "Medicines Result",
+    component: () =>
+      import(
+        /* webpackChunkName: "medicnesResult" */ "../components/searchMedicine/medicinesResult"
+      ),
+  },
+  {
+    path: "/medicinesDetail",
+    name: "Medicines Detail",
+    component: () =>
+      import(
+        /* webpackChunkName: "medicinesDetail" */ "../components/searchMedicine/medicinesDetail"
       ),
   },
 ];
