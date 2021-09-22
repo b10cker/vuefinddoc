@@ -49,10 +49,7 @@ const routes = [
   {
     path: "/signIn",
     name: "Sign In",
-    component: () =>
-      import(
-        /* webpackChunkName: "signIn" */ "../views/SignIn"
-      ),
+    component: () => import(/* webpackChunkName: "signIn" */ "../views/SignIn"),
   },
   {
     path: "/resetPassword",
@@ -65,7 +62,10 @@ const routes = [
   {
     path: "/SearchMedicine",
     name: "SignUp",
-    component: () => import(/* webpackChunkName: "SearchMedicine" */ "../views/SearchMedicine"),
+    component: () =>
+      import(
+        /* webpackChunkName: "SearchMedicine" */ "../views/SearchMedicine"
+      ),
   },
   {
     path: "/searchMedicineDetail",
@@ -102,7 +102,6 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: "history",
   base: process.env.BASE_URL,
   routes,
 });

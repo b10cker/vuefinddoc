@@ -17,13 +17,12 @@
 export default {
   name: "createSuccess",
 
-    methods: {
+  methods: {
     createSuccess() {
       this.$router.push({ path: "SignIn" });
     },
   },
 };
-
 </script>
 
 <style scoped>
