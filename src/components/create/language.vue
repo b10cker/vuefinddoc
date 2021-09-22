@@ -86,9 +86,7 @@
     </div>
 
     <div class="language-buttons">
-      <router-link to="/createSuccess">
-        <button class="continue">Last step</button>
-      </router-link>
+      <button class="continue" @click="checkInput">Last step</button>
     </div>
   </div>
 </template>
@@ -112,6 +110,10 @@ export default {
       if (!this.$data.languageSelected) {
         Toast("Please select your Language");
       } else {
+        // Store all the values globally
+        this.$store.state.languagePreference = this.$data.languageSelected;
+        // Post data to the server
+
         this.$router.push({ path: "createSuccess" });
       }
     },

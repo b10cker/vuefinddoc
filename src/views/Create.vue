@@ -98,7 +98,15 @@ export default {
         Toast(message + "Password");
       } else if (!this.$data.confirmInput) {
         Toast(message + "Confirm Password");
+      } else if (this.$data.passwordInput !== this.$data.confirmInput) {
+        Toast("Password Inputs are not the same!");
       } else {
+        // Store all the values globally
+        this.$store.state.email = this.$data.emailInput;
+        this.$store.state.username = this.$data.usernameInput;
+        this.$store.state.password = this.$data.passwordInput;
+
+        // Go to the next page
         this.$router.push({ path: "gender" });
       }
     },

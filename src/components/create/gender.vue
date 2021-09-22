@@ -82,6 +82,9 @@ export default {
       } else if (!this.$data.ageInput) {
         Toast(message + "age");
       } else {
+        // Store all the values globally
+        this.$store.state.gender = this.$data.genderSelect;
+        this.$store.state.age = this.$data.ageInput;
         this.$router.push({ path: "language" });
       }
     },
