@@ -25,13 +25,13 @@ const routes = [
     component: () => import(/* webpackChunkName: "Create" */ "../views/Create"),
   },
   {
-    path: "/gender",
+    path: "/create/gender",
     name: "Gender",
     component: () =>
       import(/* webpackChunkName: "gender" */ "../components/create/gender"),
   },
   {
-    path: "/language",
+    path: "/create/gender/language",
     name: "Language",
     component: () =>
       import(
@@ -39,7 +39,7 @@ const routes = [
       ),
   },
   {
-    path: "/createSuccess",
+    path: "/create/gender/language/createSuccess",
     name: "Create Success",
     component: () =>
       import(

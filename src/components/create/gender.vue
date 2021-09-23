@@ -85,7 +85,7 @@ export default {
         // Store all the values globally
         this.$store.state.gender = this.$data.genderSelect;
         this.$store.state.age = this.$data.ageInput;
-        this.$router.push({ path: "language" });
+        this.$router.push({ path: "/create/gender/language" });
       }
     },
   },
@@ -154,8 +154,13 @@ export default {
 }
 
 .gender-main .title-info {
-  padding-left: 1em;
+  text-align: center;
+  padding: 0 1em;
   margin-bottom: 0;
+}
+
+.title-info h2 {
+  margin: auto;
 }
 
 .gender-main .title-info p {
@@ -212,7 +217,7 @@ export default {
 }
 
 .gender-choose .radio-button-container label .gender-p {
-  margin-top: 20px;
+  margin: auto;
   font-size: 1.2em;
   font-weight: bold;
 }

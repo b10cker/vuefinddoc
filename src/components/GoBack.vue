@@ -19,6 +19,6 @@ export default {
 .goBack-icon {
   display: flex;
   justify-content: flex-start;
-  padding: 0 1rem;
+  padding: 20px 1rem 0 1rem;
 }
 </style>

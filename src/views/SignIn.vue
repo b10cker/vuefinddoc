@@ -84,7 +84,7 @@ export default {
     },
 
     signUp() {
-      this.$router.push({ path: "Create" });
+      this.$router.push({ path: "/create" });
     },
   },
 };

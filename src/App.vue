@@ -15,10 +15,11 @@ const options = {
   firstEntryDisable: false, //值为true时禁用首次进入应用时的渐现动画，默认为false
   firstEntryDuration: ".6", //首次进入应用时的渐现动画时长，默认为.6
   forwardAnim: "fadeInRight", //前进动画，默认为fadeInRight
-  backAnim: "fadeInLeft", //后退动画，默认为fedeInLeft
+  backAnim: "slideOutLeft", //后退动画，默认为fedeInLeft
   sameDepthDisable: false, //url深度相同时禁用动画，默认为false
 };
 
+// import "vueg/css/transition-min.css";
 Vue.use(vueg, router, options);
 
 export default {
@@ -30,7 +31,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .router-view-class {
   background-color: white;
   min-height: 100vh;

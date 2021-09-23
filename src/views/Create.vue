@@ -107,7 +107,7 @@ export default {
         this.$store.state.password = this.$data.passwordInput;
 
         // Go to the next page
-        this.$router.push({ path: "gender" });
+        this.$router.push({ path: "/create/gender" });
       }
     },
   },
@@ -134,7 +134,7 @@ export default {
 }
 
 .header-distance {
-  margin-top: 48px;
+  margin-top: 16px;
 }
 
 .progress {
@@ -176,7 +176,8 @@ export default {
 }
 
 .create h2 {
-  padding-left: 1em;
+  text-align: center;
+  padding: 0 1em;
   margin-bottom: 0;
 }
 

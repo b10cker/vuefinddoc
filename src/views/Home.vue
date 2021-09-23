@@ -9,6 +9,7 @@
 // @ is an alias to /src
 
 import axios from "axios";
+import qs from "qs";
 
 export default {
   name: "Home",
@@ -22,32 +23,22 @@ export default {
     },
     testPost() {
       let submitForm = {
-        age: "1",
-        email: "1",
+        age: 12,
+        email: "1123@test.com",
         gender: "male",
         languagePreference: "english",
-        password: "1",
-        username: "1",
+        password: "testTest",
+        username: "user1test",
       };
-      axios
-        .post(
-          "http://47.243.42.169/servlet_project/registerServlet/",
-          {},
-          {
-            headers: {
-              // "Access-Control-Allow-Origin": "*",
-              // "Accept-Encoding": "gzip, deflate, br",
-              // Connection: "keep-alive",
-              // Host: this.$store.state.ip,
-              "Content-Type": "application/x-www-form-urlencoded",
-              // "Content-Type": "application/json",
-            },
-            body: submitForm,
-          }
-        )
-        .then((detail) => {
-          console.log(detail);
-        });
+
+      axios({
+        method: "post",
+        url: "http://deco.logfox.xyz/servlet_project/registerServlet",
+        data: qs.stringify(submitForm),
+      }).then((detail) => {
+        console.log(detail);
+      });
+
     },
   },
 };

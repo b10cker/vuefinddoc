@@ -95,6 +95,7 @@
 import GoBack from "@/components/GoBack";
 import { Toast } from "vant";
 import axios from "axios";
+import qs from "qs";
 
 export default {
   name: "language",
@@ -108,29 +109,26 @@ export default {
   },
   methods: {
     submitForm() {
-      // Post data to the server
-      console.log(this.$store.getters.getSignUpInfo);
-      const signUpInfo = this.$store.getters.getSignUpInfo;
-      console.log(signUpInfo);
-      axios
-        .post(
-          "http://47.243.42.169/servlet_project/registerServlet/",
-          {},
-          {
-            headers: {
-              // "Access-Control-Allow-Origin": "*",
-              // "Accept-Encoding": "gzip, deflate, br",
-              // Connection: "keep-alive",
-              // Host: this.$store.state.ip,
-              "Content-Type": "application/x-www-form-urlencoded",
-              // "Content-Type": "application/json",
-            },
-            body: signUpInfo,
-          }
-        )
-        .then((detail) => {
-          console.log(detail);
-        });
+      // signUpInfo is a dictionary
+      let signUpInfo = this.$store.getters.getSignUpInfo;
+
+      //Use axios to request data
+      axios({
+        method: "post",
+        url: "http://deco.logfox.xyz/servlet_project/registerServlet",
+        // Use qs module to convert dictionary into a query string. {a:1,b:2} => "a=1&b=2"
+        data: qs.stringify(signUpInfo),
+      }).then((e) => {
+        if (e.data.error === 0) {
+          // error === 0 means create account success, show success toast and jump to the other page.
+          Toast(e.data.msg);
+          this.$router.push({ path: "/create/gender/language/createSuccess" });
+        } else {
+          // if error occurred during registration, go back to the very first page.
+          Toast(e.data.msg);
+          this.$router.go(-2);
+        }
+      });
     },
     checkInput() {
       if (!this.$data.languageSelected) {
@@ -217,8 +215,8 @@ export default {
 }
 
 .language-main .title-info {
-  padding-left: 1.5em;
-  margin-bottom: 0;
+  text-align: center;
+  padding: 1.5em 0;
 }
 
 .language-main .title-info p {
@@ -235,6 +233,7 @@ export default {
 }
 
 .language-choose .radio-button-container label {
+  display: flex;
   width: 40vw;
   height: 90px;
   padding: 2em 0 2em 3em;
@@ -243,8 +242,9 @@ export default {
 }
 
 .language-choose .radio-button-container label span {
-  margin: auto;
-  text-align: right;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
   font-size: 1em;
 }
 .language-choose .radio-button-container input[type="radio"] {
