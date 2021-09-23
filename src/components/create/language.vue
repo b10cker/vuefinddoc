@@ -94,6 +94,7 @@
 <script>
 import GoBack from "@/components/GoBack";
 import { Toast } from "vant";
+import axios from "axios";
 
 export default {
   name: "language",
@@ -106,15 +107,40 @@ export default {
     };
   },
   methods: {
+    submitForm() {
+      // Post data to the server
+      console.log(this.$store.getters.getSignUpInfo);
+      const signUpInfo = this.$store.getters.getSignUpInfo;
+      console.log(signUpInfo);
+      axios
+        .post(
+          "http://47.243.42.169/servlet_project/registerServlet/",
+          {},
+          {
+            headers: {
+              // "Access-Control-Allow-Origin": "*",
+              // "Accept-Encoding": "gzip, deflate, br",
+              // Connection: "keep-alive",
+              // Host: this.$store.state.ip,
+              "Content-Type": "application/x-www-form-urlencoded",
+              // "Content-Type": "application/json",
+            },
+            body: signUpInfo,
+          }
+        )
+        .then((detail) => {
+          console.log(detail);
+        });
+    },
     checkInput() {
       if (!this.$data.languageSelected) {
         Toast("Please select your Language");
       } else {
         // Store all the values globally
         this.$store.state.languagePreference = this.$data.languageSelected;
-        // Post data to the server
+        this.submitForm();
 
-        this.$router.push({ path: "createSuccess" });
+        // this.$router.push({ path: "createSuccess" });
       }
     },
   },
