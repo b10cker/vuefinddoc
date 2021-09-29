@@ -61,7 +61,7 @@ const routes = [
   },
   {
     path: "/SearchMedicine",
-    name: "SignUp",
+    name: "Search Medicine",
     component: () =>
       import(
         /* webpackChunkName: "SearchMedicine" */ "../views/SearchMedicine"

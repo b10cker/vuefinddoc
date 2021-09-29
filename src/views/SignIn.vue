@@ -14,14 +14,14 @@
           </div>
           <input
             type="text"
-            v-model="usernameInput"
+            v-model="loginUsername"
             id="username"
             name="username"
             placeholder="Email or Username"
           /><br />
           <input
             type="password"
-            v-model="passwordInput"
+            v-model="loginPassword"
             id="password"
             name="password"
             placeholder="Password"
@@ -32,9 +32,9 @@
           </div>
 
           <div class="sign_in_button">
-            <button class="signIn" @click="checkInput">
+            <div class="signIn" @click="checkInput">
               Sign In
-            </button>
+            </div>
           </div>
         </form>
       </section>
@@ -55,6 +55,8 @@
 <script>
 import GoBack from "@/components/GoBack";
 import { Toast } from "vant";
+import axios from "axios";
+import qs from "qs";
 
 export default {
   name: "SignIn",
@@ -63,28 +65,56 @@ export default {
   },
   data() {
     return {
-      usernameInput: "",
-      passwordInput: "",
+      loginUsername: "",
+      loginPassword: "",
     };
   },
   methods: {
     checkInput() {
       let message = "Please fill in your ";
-      if (!this.$data.usernameInput) {
+      if (!this.$data.loginUsername) {
         Toast(message + "Username");
-      } else if (!this.$data.passwordInput) {
+      } else if (!this.$data.loginPassword) {
         Toast(message + "Password");
       } else {
-        //jump into new page?
+        this.$store.state.loginUsername = this.$data.loginUsername;
+        this.$store.state.loginPassword = this.$data.loginPassword;
+        this.signIn();
       }
+    },
+
+    signUp() {
+      this.$router.push({ path: "create" });
     },
 
     forgot_password() {
       this.$router.push({ path: "resetPassword" });
     },
 
-    signUp() {
-      this.$router.push({ path: "/create" });
+    signIn() {
+      let loginInfo = this.$store.getters.getLoginInfo;
+
+      axios({
+        method: "post",
+        url: "http://deco.logfox.xyz/servlet_project/loginServlet",
+        // Use qs module to convert dictionary into a query string. {a:1,b:2} => "a=1&b=2"
+        data: qs.stringify(loginInfo),
+      }).then((e) => {
+        if (e.data.error === 1) {
+          // error === 1 means incorrect username or password show the error message.
+          Toast(e.data.msg);
+          console.log("incorrect u&p");
+        }
+         else if (e.data.error === 2) {
+          // error === 2 means user did not verify the email and show the error message.
+          Toast(e.data.msg);
+          console.log("verify");
+        } else {
+          // login success show message
+          Toast(e.data.msg);
+          console.log("success");
+        }
+      });
     },
   },
 };
