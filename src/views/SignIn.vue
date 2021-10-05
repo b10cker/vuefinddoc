@@ -9,7 +9,7 @@
 
       <section class="sign-in">
         <form action="">
-          <div>
+          <div class="signUp">
             <p>Do not have an account? <a @click="signUp">Sign up</a></p>
           </div>
           <input
@@ -120,7 +120,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 body {
   margin: 0;
   padding: 0;
@@ -161,16 +161,16 @@ body {
   justify-content: center;
 }
 
-.sign-in div {
+.signUp, .forgot_password {
   text-align: right;
 }
 
 .sign_in_button {
   margin-top: 5em;
-  display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .signIn {
@@ -181,7 +181,6 @@ body {
   color: white;
   font-size: 1em;
   background-color: #396cf0;
-  text-decoration: none;
   text-align: center;
 }
 
@@ -202,6 +201,8 @@ body {
 .forgot_password a {
   text-decoration: none;
 }
+
+.
 
 .others_login {
   width: 100vw;
