@@ -103,14 +103,13 @@ export default {
         if (e.data.error === 1) {
           // error === 1 means incorrect username or password show the error message.
           Toast(e.data.msg);
-          console.log("incorrect password");
         }
          else if (e.data.error === 2) {
           // error === 2 means user did not verify the email and show the error message.
           Toast(e.data.msg);
         } else {
           // login success show message
-          
+          window.location.href = 'http://deco.logfox.xyz/servlet_project/jumperServlet?target=home.html';
         }
       });
     },
