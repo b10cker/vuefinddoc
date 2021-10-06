@@ -47,7 +47,7 @@ const routes = [
       ),
   },
   {
-    path: "/signIn",
+    path: "views/signIn",
     name: "Sign In",
     component: () => import(/* webpackChunkName: "signIn" */ "../views/SignIn"),
   },

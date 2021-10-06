@@ -19,7 +19,7 @@ export default {
 
   methods: {
     createSuccess() {
-      this.$router.push({ path: "SignIn" });
+      this.$router.push({ path: "/" });
     },
   },
 };
