@@ -12,6 +12,8 @@ export default new Vuex.Store({
     gender: "",
     languagePreference: "",
     ip: "http://47.243.42.169",
+    loginUsername: "",
+    loginPassword: "",
   },
   mutations: {},
   getters: {
@@ -23,6 +25,12 @@ export default new Vuex.Store({
         age: state.age,
         gender: state.gender,
         languagePreference: state.languagePreference,
+      };
+    },
+    getLoginInfo: (state) => {
+      return {
+        username: state.loginUsername,
+        password: state.loginPassword,
       };
     },
   },
