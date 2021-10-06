@@ -8,7 +8,7 @@
       </div>
 
       <section class="sign-in">
-        <form action="">
+        <form action="http://deco.logfox.xyz/servlet_project/loginServlet" method="post">
           <div class="signUp">
             <p>Do not have an account? <a @click="signUp">Sign up</a></p>
           </div>
@@ -103,16 +103,14 @@ export default {
         if (e.data.error === 1) {
           // error === 1 means incorrect username or password show the error message.
           Toast(e.data.msg);
-          console.log("incorrect u&p");
+          console.log("incorrect password");
         }
          else if (e.data.error === 2) {
           // error === 2 means user did not verify the email and show the error message.
           Toast(e.data.msg);
-          console.log("verify");
         } else {
           // login success show message
-          Toast(e.data.msg);
-          console.log("success");
+          
         }
       });
     },
@@ -167,7 +165,7 @@ body {
 
 .sign_in_button {
   margin-top: 5em;
-  /* flex-direction: column; */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -201,8 +199,6 @@ body {
 .forgot_password a {
   text-decoration: none;
 }
-
-.
 
 .others_login {
   width: 100vw;
