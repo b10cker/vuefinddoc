@@ -18,7 +18,7 @@
         /><br />
 
         <div class="reset_button">
-          <button class="reset" @click="checkInput" type="submit">Reset</button>
+          <div class="reset" @click="checkInput">Reset</div>
         </div>
       </form>
     </section>
@@ -28,6 +28,8 @@
 <script>
 import GoBack from "@/components/GoBack";
 import { Toast } from "vant";
+import axios from "axios";
+import qs from "qs";
 
 export default {
   name: "resetPassword",
@@ -42,15 +44,32 @@ export default {
   methods: {
     checkInput() {
       // let message = "Please fill in your ";
-      if (!this.$data.genderSelect) {
-        Toast("Please select your Gender");
+      if (!this.$data.emailInput) {
+        Toast("Please fill you email address");
+      } else {
+        this.$store.state.email = this.$data.emailInput;
+
+        let resetInfo = this.$store.getters.getResetInfo;
+
+        axios({
+        method: "post",
+        url: "http://deco.logfox.xyz/servlet_project/resetPasswordServlet",
+        // Use qs module to convert dictionary into a query string. {a:1,b:2} => "a=1&b=2"
+        data: qs.stringify(resetInfo),
+        }).then((e) => {
+          if (e.data.error === 0) {
+          Toast(e.data.msg);
+          } else {
+          Toast(e.data.msg);
+          }
+        });
       }
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 .sign-in {
   width: 100vw;
   height: 30vh;
@@ -60,9 +79,6 @@ export default {
   justify-content: center;
 }
 
-.sign-in div {
-  text-align: right;
-}
 
 .reset_button {
   margin-top: 5em;
@@ -70,12 +86,13 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .reset {
   border: none;
   border-radius: 15px;
-  width: 85vw;
+  width: 75vw;
   padding: 1.2em;
   color: white;
   font-size: 1em;

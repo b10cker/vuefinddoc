@@ -59,46 +59,6 @@ const routes = [
         /* webpackChunkName: "resetPassword" */ "../components/signIn/resetPassword"
       ),
   },
-  {
-    path: "/SearchMedicine",
-    name: "Search Medicine",
-    component: () =>
-      import(
-        /* webpackChunkName: "SearchMedicine" */ "../views/SearchMedicine"
-      ),
-  },
-  {
-    path: "/searchMedicineDetail",
-    name: "Search Medicine Detail",
-    component: () =>
-      import(
-        /* webpackChunkName: "searchMedicineDetail" */ "../components/searchMedicine/searchMedicineDetail"
-      ),
-  },
-  {
-    path: "/medicinesResultCat",
-    name: "Medicines Result Cat",
-    component: () =>
-      import(
-        /* webpackChunkName: "medicinesResultCat" */ "../components/searchMedicine/medicinesResultCat"
-      ),
-  },
-  {
-    path: "/medicinesResult",
-    name: "Medicines Result",
-    component: () =>
-      import(
-        /* webpackChunkName: "medicnesResult" */ "../components/searchMedicine/medicinesResult"
-      ),
-  },
-  {
-    path: "/medicinesDetail",
-    name: "Medicines Detail",
-    component: () =>
-      import(
-        /* webpackChunkName: "medicinesDetail" */ "../components/searchMedicine/medicinesDetail"
-      ),
-  },
 ];
 
 const router = new VueRouter({

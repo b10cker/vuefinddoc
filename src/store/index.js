@@ -14,6 +14,7 @@ export default new Vuex.Store({
     ip: "http://47.243.42.169",
     loginUsername: "",
     loginPassword: "",
+    resetPassword: "",
   },
   mutations: {},
   getters: {
@@ -31,6 +32,11 @@ export default new Vuex.Store({
       return {
         username: state.loginUsername,
         password: state.loginPassword,
+      };
+    },
+    getResetInfo: (state) => {
+      return {
+        email: state.resetPassword,
       };
     },
   },
