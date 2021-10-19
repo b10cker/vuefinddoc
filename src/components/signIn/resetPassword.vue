@@ -102,13 +102,17 @@ export default {
 }
 
 .sign-in input {
-  background-color: #f7f3f3;
   border: none;
-  border-radius: 10px;
+  border-bottom: 1px solid #707070;
   margin-top: 1em;
   width: 80vw;
   height: 2em;
   padding: 10px;
+}
+
+.signin input:focus{
+  border-bottom: 1px solid #396CF0;
+  outline: none;
 }
 
 .reset_description {

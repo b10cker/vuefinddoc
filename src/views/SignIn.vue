@@ -10,7 +10,7 @@
       <section class="sign-in">
         <form action="http://deco.logfox.xyz/servlet_project/loginServlet" method="post">
           <div class="signUp">
-            <p>Do not have an account? <a @click="signUp">Sign up</a></p>
+            <p>Do not have an account? <a @click="signUp" class="sign_up">Sign up</a></p>
           </div>
           <input
             type="text"
@@ -28,7 +28,7 @@
           /><br /><br />
 
           <div class="forgot_password">
-            <a @click="forgot_password">Forgot passward?</a><br />
+            <a @click="forgot_password" class="sign_up">Forgot passward?</a><br />
           </div>
 
           <div class="sign_in_button">
@@ -41,12 +41,12 @@
     </section>
     <section class="others_login">
       <div class="horizontal_line">
-        <p><span>or</span></p>
+        <p><span>Also</span></p>
       </div>
       <div class="others_login_icons">
         <i class="fab fa-facebook"></i>
-        <i class="fab fa-google"></i>
         <i class="fab fa-twitter"></i>
+        <i class="fab fa-google"></i>
       </div>
     </section>
   </div>
@@ -158,6 +158,12 @@ body {
   justify-content: center;
 }
 
+
+.sign_up {
+  color:#396CF0;
+}
+
+
 .signUp, .forgot_password {
   text-align: right;
 }
@@ -173,7 +179,7 @@ body {
 .signIn {
   border: none;
   border-radius: 15px;
-  width: 85vw;
+  width: 75vw;
   padding: 1.2em;
   color: white;
   font-size: 1em;
@@ -182,9 +188,8 @@ body {
 }
 
 .sign-in input {
-  background-color: #f7f3f3;
   border: none;
-  border-radius: 10px;
+  border-bottom: 1px solid #707070;
   margin-top: 1em;
   width: 80vw;
   height: 2em;

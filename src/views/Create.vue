@@ -190,11 +190,10 @@ export default {
 
 /*create page input*/
 .create input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #707070;
   width: 83vw;
   font-size: large;
-  background-color: #f6f7f8;
-  border: none;
-  border-radius: 8px;
   color: #707070;
 }
 
