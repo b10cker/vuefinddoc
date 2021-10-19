@@ -47,7 +47,7 @@ export default {
       if (!this.$data.emailInput) {
         Toast("Please fill you email address");
       } else {
-        this.$store.state.email = this.$data.emailInput;
+        this.$store.state.resetPassword = this.$data.emailInput;
 
         let resetInfo = this.$store.getters.getResetInfo;
 
